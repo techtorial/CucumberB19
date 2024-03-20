@@ -1,7 +1,10 @@
 Feature: Testing Adding New Products Functionality
 
+Background: Login Successful
+  Given User provides username and password to the loginPage
+
   Scenario: Happy Path Product Adding Function
-    Given User provides username and password to the loginPage
+#    Given User provides username and password to the loginPage
     When User clicks Products Button and addProductButton from Products Page
     And User provides 'Truck-Mounted Crane' and '15000' to the product details
     And User selects 'Lifting and Material Handling Equipment','Mobile Cranes' and '1' from drop-downs
@@ -9,7 +12,7 @@ Feature: Testing Adding New Products Functionality
     Then User validates product details 'Truck-Mounted Crane','$16,500.00','Allowed' from table
 
   Scenario: Happy Path Product Filter Functionality
-    Given User provides username and password to the loginPage
+#    Given User provides username and password to the loginPage
     When User clicks Products button
     And User selects 'Lifting and Material Handling Equipment' and 'Mobile Cranes' from filter dropDowns
     And User selects the view option from actions button

@@ -1,5 +1,7 @@
 package utils;
 
+import io.cucumber.java.Scenario;
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,19 +11,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Date;
 import java.util.Set;
 
 public class BrowserUtils {
 
-    public static String getText(WebElement element){
+    public static String getText(WebElement element) {
         return element.getText().trim();
     }
 
-    public static void selectBy(WebElement location,String value,String methodName){
+    public static void selectBy(WebElement location, String value, String methodName) {
 
-        Select select=new Select(location);
+        Select select = new Select(location);
 
-        switch (methodName){
+        switch (methodName) {
 
             case "text":
                 select.selectByVisibleText(value);
@@ -37,48 +40,65 @@ public class BrowserUtils {
         }
     }
 
-    public static String getTitleJS(WebDriver driver){
-        JavascriptExecutor js= (JavascriptExecutor) driver;
+    public static String getTitleJS(WebDriver driver) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         return js.executeScript("return document.title").toString().trim();
     }
-    public static void clickJS(WebDriver driver,WebElement element){
-        JavascriptExecutor js= (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click()",element);
+
+    public static void clickJS(WebDriver driver, WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()", element);
     }
 
-    public static void scrollIntoView(WebDriver driver,WebElement element){
-        JavascriptExecutor js= (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true)",element);
+    public static void scrollIntoView(WebDriver driver, WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true)", element);
     }
 
-    public static void switchWindow(WebDriver driver,String title){
-      Set<String> allPagesId=driver.getWindowHandles();
-      for(String id:allPagesId){
-          driver.switchTo().window(id);
-          if(driver.getTitle().contains(title)){
-              break;
-          }
-      }
+    public static void switchWindow(WebDriver driver, String title) {
+        Set<String> allPagesId = driver.getWindowHandles();
+        for (String id : allPagesId) {
+            driver.switchTo().window(id);
+            if (driver.getTitle().contains(title)) {
+                break;
+            }
+        }
     }
-//    public static void getScreenShot(WebDriver driver,String packageName){
-//        File file=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//        String location=System.getProperty("src/test/java/"+packageName+"/");
-//        try {
-////            FileUtils.copyFile(file,new File(location+System.currentTimeMillis()));
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
 
-  //  }
+    public static void getScreenShot(WebDriver driver, String packageName) {
+        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String location = System.getProperty("src/test/java/" + packageName + "/");
+        try {
+            FileUtils.copyFile(file, new File(location + System.currentTimeMillis()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-    public static WebElement explicitlyWait(WebDriver driver,WebElement element,String condition){
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(20));
-        condition=condition.toLowerCase();
-        if(condition.contains("visibility")){
-            element=wait.until(ExpectedConditions.visibilityOf(element));
-        }else if(condition.contains("clickable")){
-            element=wait.until(ExpectedConditions.elementToBeClickable(element));
-        }else{
+    public static void getScreenShotWithCucumber(WebDriver driver, Scenario scenario){
+        Date date=new Date();
+        String screenShotFileName=date.toString().replace(" ","-")
+                .replace(":","-");
+        if(scenario.isFailed()){
+            File screenShotFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            try {
+                FileUtils.copyFile(screenShotFile,new File("src/test/java/screenshot/"+screenShotFileName+".png"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+
+
+    public static WebElement explicitlyWait(WebDriver driver, WebElement element, String condition) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        condition = condition.toLowerCase();
+        if (condition.contains("visibility")) {
+            element = wait.until(ExpectedConditions.visibilityOf(element));
+        } else if (condition.contains("clickable")) {
+            element = wait.until(ExpectedConditions.elementToBeClickable(element));
+        } else {
             Assert.fail("Please provide either visibility or clickable");
         }
         return element;

@@ -1,14 +1,18 @@
 Feature: Testing the Login Functionality of TechtorialWork Website
 
-  Scenario: Happy Path Login Functionality(Positive)
+  Background: Repeated steps for scenarios(It will run before every scenario)
     Given User validates the title is 'techtorial'
     And User validates log_in is visible
+
+  Scenario: Happy Path Login Functionality(Positive)
+#    Given User validates the title is 'techtorial'
+#    And User validates log_in is visible
     When User provides 'dev_techtorial@example.com' and '123456789' to the loginPage
     Then User validates the title 'Dashboard' from MainPage
 
   Scenario: Negative Login Functionality(Incorrect email and password
-    Given User validates the title is 'techtorial'
-    And User validates log_in is visible
+#    Given User validates the title is 'techtorial'
+#    And User validates log_in is visible
     When User provides 'asdasd@example.com' and '423432' to the loginPage
     Then User validates the 'These credentials do not match our records.' message and 'rgba(211, 0, 0, 1)' color
 
