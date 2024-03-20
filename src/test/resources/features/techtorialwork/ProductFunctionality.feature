@@ -8,6 +8,12 @@ Feature: Testing Adding New Products Functionality
     And User clicks purchase check box,add 'It is a good product' into the description and save button
     Then User validates product details 'Truck-Mounted Crane','$16,500.00','Allowed' from table
 
+  Scenario: Happy Path Product Filter Functionality
+    Given User provides username and password to the loginPage
+    When User clicks Products button
+    And User selects 'Lifting and Material Handling Equipment' and 'Mobile Cranes' from filter dropDowns
+    And User selects the view option from actions button
+    Then User validates 'Lifting and Material Handling Equipment' and 'Mobile Cranes' from product details
 
 
 

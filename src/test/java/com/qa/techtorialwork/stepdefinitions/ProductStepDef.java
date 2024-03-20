@@ -35,8 +35,25 @@ public class ProductStepDef {
     productPage.purchaseConfirmation(description);
     }
     @Then("User validates product details {string},{string},{string} from table")
-    public void user_validates_product_details_from_table(String string, String string2, String string3) {
-
+    public void user_validates_product_details_from_table(String productName, String productPrice, String confirmation) {
+    productPage.validateProductData(productName,productPrice,confirmation);
     }
+    @When("User clicks Products button")
+    public void user_clicks_products_button() {
+    mainPage.clickProductButton();
+    }
+    @When("User selects {string} and {string} from filter dropDowns")
+    public void user_selects_and_from_filter_drop_downs(String categoryName, String subCategoryName) {
+    productPage.chooseCategoryAndSubCategory(categoryName,subCategoryName);
+    }
+    @When("User selects the view option from actions button")
+    public void user_selects_the_view_option_from_actions_button() {
+    productPage.chooseViewOption();
+    }
+    @Then("User validates {string} and {string} from product details")
+    public void user_validates_and_from_product_details(String expectedCategory, String expectedSubCategory) {
+    productPage.validateInformation(expectedCategory,expectedSubCategory);
+    }
+
 
 }
