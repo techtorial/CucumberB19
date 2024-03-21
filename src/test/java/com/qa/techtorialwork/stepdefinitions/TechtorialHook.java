@@ -12,13 +12,13 @@ public class TechtorialHook {
 
     public WebDriver driver;
 
-    @Before
+//    @Before
     public void setup() {
         driver = DriverHelper.getDriver();
         driver.get(ConfigReader.readProperty("workurl"));
     }
 
-    @After
+//    @After
     public void tearDown(Scenario scenario) {
         BrowserUtils.getScreenShotWithCucumber(driver, scenario);
         driver.quit();
