@@ -12,7 +12,6 @@ Feature: Testing Search Functionality of Etsy
       | Key      | Key - Etsy |
       | Pin      | Pin - Etsy |
 
-
 #  Scenario: Happy Path Search Function
 #    When User search 'Key' from searchBar
 #    Then User validates 'Key - Etsy' as title
