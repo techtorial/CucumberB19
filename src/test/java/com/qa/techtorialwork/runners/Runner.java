@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(//It is an annotation that has some special keywords
         features = "src/test/resources/features", //the location of your feature files(we provide features folder)(Content)
         glue = "com/qa/techtorialwork/stepdefinitions", //the location of step definitions(source)
-        dryRun = false,//It is a way to get snips without executing the steps (true)
+        dryRun = true,//It is a way to get snips without executing the steps (true)
         tags = "@regression",//it is a way to filter your test cases(scenario)
         plugin = {"pretty","html:target/uiReport.html","rerun:target/uiFailedTests.txt"}
 )

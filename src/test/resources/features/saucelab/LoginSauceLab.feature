@@ -40,12 +40,3 @@ Feature: Testing Login Functionality
     Then User validates title from SauceLab as List
       | Swag Labs |
 
-
-
-
-
-
-
-
-
-
