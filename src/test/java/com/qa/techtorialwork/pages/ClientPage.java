@@ -60,8 +60,9 @@ public class ClientPage {
         Thread.sleep(3000);
     }
 
-    public void saveAndValidate(String expectedName,String expectedCompany){
+    public void saveAndValidate(String expectedName,String expectedCompany) throws InterruptedException {
         saveButton.click();
+        Thread.sleep(1000);
         Assert.assertTrue(BrowserUtils.getText(allData.get(2)).contains(expectedName));
         Assert.assertTrue(BrowserUtils.getText(allData.get(2)).contains(expectedCompany));
     }

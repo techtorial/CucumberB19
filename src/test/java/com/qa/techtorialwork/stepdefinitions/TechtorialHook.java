@@ -21,6 +21,6 @@ public class TechtorialHook {
    @After
     public void tearDown(Scenario scenario) {
         BrowserUtils.getScreenShotWithCucumber(driver, scenario);
-        driver.quit();
+       driver.quit();
     }
 }

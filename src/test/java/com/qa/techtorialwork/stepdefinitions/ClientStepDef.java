@@ -28,7 +28,7 @@ public class ClientStepDef {
     clientPage.addressInformation(address,shippingAddress);
     }
     @Then("User clicks save button and validates {string},{string}")
-    public void user_clicks_save_button_and_validates(String name, String companyName) {
+    public void user_clicks_save_button_and_validates(String name, String companyName) throws InterruptedException {
     clientPage.saveAndValidate(name,companyName);
     }
 }
