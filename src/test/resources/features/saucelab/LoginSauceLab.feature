@@ -14,6 +14,38 @@ Feature: Testing Login Functionality
       | error_user              | secret_sauce | Swag Labs |
       | visual_user             | secret_sauce | Swag Labs |
 
-    Scenario Outline: Negative Login
+  Scenario Outline: Negative Login
+    When User provides '<username>' and '<password>' for SauceLab
+    Then User validates the '<errorMessage>' from LoginPage
+    Examples:
+      | username        | password      | errorMessage                                                              |
+      | locked_out_user | secret_sauce  | Epic sadface: Sorry, this user has been locked out.                       |
+      | wrongUsername   | wrongpassword | Epic sadface: Username and password do not match any user in this service |
+      |                 | secret_sauce  | Epic sadface: Username is required                                        |
+      | locked_out_user |               | Epic sadface: Password is required                                        |
+      |                 |               | Epic sadface: Username is required                                        |
 
-      Examples:
+    #DATATABLE LOGIC
+  Scenario: Testing Happy Path with DataTable as Map
+    When User provides username and password for SauceLab
+      | username | standard_user |
+      | password | secret_sauce  |
+    Then User validates title from SauceLab
+      | title | Swag Labs |
+
+  Scenario: Testing Happy Path with DataTable with As List
+    When User provides username and password for SauceLab as List
+      | standard_user |
+      | secret_sauce  |
+    Then User validates title from SauceLab as List
+      | Swag Labs |
+
+
+
+
+
+
+
+
+
+
