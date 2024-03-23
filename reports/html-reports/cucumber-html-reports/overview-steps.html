@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script>
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<title>Cucumber Reports (no 1) - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+        <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+        <th>Number</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>CucumberB18-Cucumber-Report</td>
+        <td>1</td>
+      <td>23 Mar 2024, 11:55</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+  </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+      <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+  </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Average duration</th>
+            <th>Max duration</th>
+            <th>Total durations</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ClientStepDef.user_clicks_add_client_and_provides_account_information(java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>3</td>
+              <td class="duration" data-value="4190391000">4.190</td>
+              <td class="duration" data-value="4190391000">4.215</td>
+              <td class="duration" data-value="12571173000">12.571</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ClientStepDef.user_clicks_clients_button()</td>
+              <td>3</td>
+              <td class="duration" data-value="644067333">0.644</td>
+              <td class="duration" data-value="644067333">0.666</td>
+              <td class="duration" data-value="1932202000">1.932</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ClientStepDef.user_clicks_save_button_and_validates(java.lang.String,java.lang.String)</td>
+              <td>3</td>
+              <td class="duration" data-value="1095274666">1.095</td>
+              <td class="duration" data-value="1095274666">1.114</td>
+              <td class="duration" data-value="3285824000">3.285</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ClientStepDef.user_provides_address_information(java.lang.String,java.lang.String)</td>
+              <td>3</td>
+              <td class="duration" data-value="3125841666">3.125</td>
+              <td class="duration" data-value="3125841666">3.131</td>
+              <td class="duration" data-value="9377525000">9.377</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ClientStepDef.user_provides_company_information(java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>3</td>
+              <td class="duration" data-value="3146047000">3.146</td>
+              <td class="duration" data-value="3146047000">3.159</td>
+              <td class="duration" data-value="9438141000">9.438</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.LoginStepDef.user_provides_and_to_the_login_page(java.lang.String,java.lang.String)</td>
+              <td>2</td>
+              <td class="duration" data-value="3841070500">3.841</td>
+              <td class="duration" data-value="3841070500">7.036</td>
+              <td class="duration" data-value="7682141000">7.682</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.LoginStepDef.user_validates_log_in_is_visible()</td>
+              <td>2</td>
+              <td class="duration" data-value="25397000">0.025</td>
+              <td class="duration" data-value="25397000">0.032</td>
+              <td class="duration" data-value="50794000">0.050</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.LoginStepDef.user_validates_the_message_and_color(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="22380000">0.022</td>
+              <td class="duration" data-value="22380000">0.022</td>
+              <td class="duration" data-value="22380000">0.022</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.LoginStepDef.user_validates_the_title_from_main_page(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="3483000">0.003</td>
+              <td class="duration" data-value="3483000">0.003</td>
+              <td class="duration" data-value="3483000">0.003</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.LoginStepDef.user_validates_the_title_is(java.lang.String)</td>
+              <td>2</td>
+              <td class="duration" data-value="750189000">0.750</td>
+              <td class="duration" data-value="750189000">0.809</td>
+              <td class="duration" data-value="1500378000">1.500</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ProductStepDef.user_clicks_products_button()</td>
+              <td>1</td>
+              <td class="duration" data-value="527664000">0.527</td>
+              <td class="duration" data-value="527664000">0.527</td>
+              <td class="duration" data-value="527664000">0.527</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ProductStepDef.user_clicks_products_button_and_add_product_button_from_products_page()</td>
+              <td>1</td>
+              <td class="duration" data-value="1104127000">1.104</td>
+              <td class="duration" data-value="1104127000">1.104</td>
+              <td class="duration" data-value="1104127000">1.104</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ProductStepDef.user_clicks_purchase_check_box_add_into_the_description_and_save_button(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="5108613000">5.108</td>
+              <td class="duration" data-value="5108613000">5.108</td>
+              <td class="duration" data-value="5108613000">5.108</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ProductStepDef.user_provides_and_to_the_product_details(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="2410557000">2.410</td>
+              <td class="duration" data-value="2410557000">2.410</td>
+              <td class="duration" data-value="2410557000">2.410</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ProductStepDef.user_provides_username_and_password_to_the_login_page()</td>
+              <td>5</td>
+              <td class="duration" data-value="7043835800">7.043</td>
+              <td class="duration" data-value="7043835800">10.043</td>
+              <td class="duration" data-value="35219179000">35.219</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ProductStepDef.user_selects_and_from_drop_downs(java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="333467000">0.333</td>
+              <td class="duration" data-value="333467000">0.333</td>
+              <td class="duration" data-value="333467000">0.333</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ProductStepDef.user_selects_and_from_filter_drop_downs(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="137103000">0.137</td>
+              <td class="duration" data-value="137103000">0.137</td>
+              <td class="duration" data-value="137103000">0.137</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ProductStepDef.user_selects_the_view_option_from_actions_button()</td>
+              <td>1</td>
+              <td class="duration" data-value="546851000">0.546</td>
+              <td class="duration" data-value="546851000">0.546</td>
+              <td class="duration" data-value="546851000">0.546</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ProductStepDef.user_validates_and_from_product_details(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="206626000">0.206</td>
+              <td class="duration" data-value="206626000">0.206</td>
+              <td class="duration" data-value="206626000">0.206</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.ProductStepDef.user_validates_product_details_from_table(java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="52614000">0.052</td>
+              <td class="duration" data-value="52614000">0.052</td>
+              <td class="duration" data-value="52614000">0.052</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.TechtorialHook.setup()</td>
+              <td>7</td>
+              <td class="duration" data-value="2162860285">2.162</td>
+              <td class="duration" data-value="2162860285">2.738</td>
+              <td class="duration" data-value="15140022000">15.140</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.qa.techtorialwork.stepdefinitions.TechtorialHook.tearDown(io.cucumber.java.Scenario)</td>
+              <td>7</td>
+              <td class="duration" data-value="104252857">0.104</td>
+              <td class="duration" data-value="104252857">0.136</td>
+              <td class="duration" data-value="729770000">0.729</td>
+              <td class="passed">100.00%</td>
+            </tr>
+        </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>22</td>
+            <td>51</td>
+            <td class="duration">2.105</td>
+            <td class="duration">35.219</td>
+            <td class="duration">1:47.380</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>
